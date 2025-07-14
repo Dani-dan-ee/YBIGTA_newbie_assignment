@@ -47,6 +47,7 @@ class Matrix:
 
     def __setitem__(self, key: tuple[int, int], value: int) -> None:
         # 구현하세요!
+        """지정한 위치에 MOD 연산 후 값 저장"""
         self.matrix[key[0]][key[1]] = value % self.MOD
         pass
 
@@ -66,6 +67,7 @@ class Matrix:
 
     def __pow__(self, n: int) -> Matrix:
         # 구현하세요!
+        """행렬의 n 제곱 반환 (분할 정복 방식)"""
         if n == 0 :
             return Matrix.eye(self.shape[0])
         if n == 1 :
@@ -79,6 +81,7 @@ class Matrix:
 
     def __repr__(self) -> str:
         # 구현하세요!
+        """행렬을 문자열로 변환 (MOD 적용된 값 기준)"""
         return '\n'.join(' '.join(str(cell % self.MOD) for cell in row) for row in self.matrix)
         pass
 
